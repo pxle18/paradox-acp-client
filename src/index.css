@@ -1,0 +1,27 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-default;
+    @apply text-white;
+    
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  input[type=password]::-ms-reveal,
+  input[type=password]::-ms-clear
+  {
+      display: none;
+  }
+
+  *:focus {
+    outline: 0px !important;
+    outline-offset: 0px !important;
+    box-shadow: none !important;
+  }
+}
