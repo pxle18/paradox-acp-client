@@ -8,7 +8,7 @@ const App = (): JSX.Element => {
   const { currentAuthUser } = useAuthContext();
 
   return (
-    <main className="bg-[url('/images/background-login.gif')] bg-no-repeat bg-cover h-screen">
+    <main className="bg-dark-900 h-screen">
       { currentAuthUser ? 
           <PrivateRoutes />
         : <PublicRoutes /> }

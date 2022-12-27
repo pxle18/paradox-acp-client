@@ -24,4 +24,12 @@
     outline-offset: 0px !important;
     box-shadow: none !important;
   }
+
+  p {
+    display: block;
+    margin-block-start: 0em !important;
+    margin-block-end: 0em!important;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
 }

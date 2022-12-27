@@ -6,73 +6,45 @@ import Input from "components/input";
 import Logo from "assets/vectors/paradox-logo.svg";
 import { useAuthContext } from "app/contexts/auth-context";
 import presentService from "app/services/present.service";
+import { Link, Route, Routes } from "react-router-dom";
+import Login from ".";
+import UserInfo from "pages/user-info";
 
 const Dashboard: React.FC = () => 
 {
-  const { setAuthUser, currentAuthUser } = useAuthContext();
-
-  const [callbackMessage, setCallbackMessage] = useState<string>();
-
-  const openPresent = (): void => {
-     presentService.openPresent().then(response => {
-      if(response.success) {
-        var present = response.content;
-
-        currentAuthUser.hasGiftClaimed = true;
-        currentAuthUser.giftClaimed = present.item;
-
-        setAuthUser(currentAuthUser);
-        setCallbackMessage("");
-      } else setCallbackMessage(response.content);
-    });
-  }
+  const { currentAuthUser } = useAuthContext();
 
   return (
-    <div className="flex justify-center items-center h-full backdrop-blur-sm">
-      <div className="flex bg-primary bg-opacity-30 h-full 2xl:w-3/12 xl:w-1/3 w-full justify-center items-center">
-        <div className="flex flex-col items-center justify-center w-full p-16 gap-3">
-          <div className="text-center">
-            <img src={Logo} alt="Logo" className="w-36"/>
+    <div className="flex w-full h-screen">
+      <div className="lg:flex lg:w-64 hidden bg-dark-800 h-full py-20 px-7">
+        <div className="flex flex-col w-64">
+          <div className="flex flex-col items-center">
+            <img src={Logo} alt="Logo" className="w-24 h-24" />
+
+            <p className="font-semibold text-center text-red">{ currentAuthUser.teamRank }</p>
+            <p className="font-normal text-center -mt-1">{ currentAuthUser.username }</p>
+
           </div>
 
-          <div className="text-center">
-            <p className="font-medium text-3xl">Adventskalender</p>
-          </div>
+          <div className="flex flex-col items-start mt-4 gap-2 overflow-y-auto">
+            <p className="font-semibold text-xl uppercase tracking-wider">Navigation</p>
 
-          <div className="bg-gray-800 bg-opacity-50 w-full h-[1px]" />
-
-          <div className="text-center">
-            <p className="font-default text-base">Willkommen, { currentAuthUser?.username }.</p>
-            <p className="font-default text-sm">
-              {
-                currentAuthUser.hasGiftClaimed ? 
-                  "Du hast bereits dein Geschenk abgeholt." :
-                  "Bist du bereit dein tägliches Geschenk abzuholen?"
-              }
-            </p>
+            <Link to="/" className="w-full">
+              <Button fullWidth={true}>Dashboard</Button>
+            </Link>
+            
+            <Link to="user-info" className="w-full">
+              <Button fullWidth={true}>Spieler</Button>
+            </Link>
           </div>
-
-          <div className="flex justify-center items-center">
-            <img src="/images/gift-icon.png" className="w-1/3" alt="Geschenk" />
-            <div className="flex flex-col">
-              <p className="font-semibold uppercase tracking-widest">TAG { new Date().getDate() }</p>
-              <p className="font-medium spacing tracking-tight uppercase -my-2">
-                {
-                  currentAuthUser.hasGiftClaimed ? 
-                    currentAuthUser.giftClaimed :
-                    "Unbekannter Inhalt"
-                }
-              </p>
-            </div>
-          </div>
-          { callbackMessage }
-          <p>
-              { 
-                currentAuthUser.christmasCode != "" && ("Dein Code: " + currentAuthUser.christmasCode)
-              }
-            </p>
-          { !currentAuthUser?.hasGiftClaimed && <Button className="!mt-3" fullWidth={true} onClick={() => openPresent()}>Geschenk öffnen</Button>}
         </div>
+      </div>
+
+      <div className="flex flex-col p-28 w-full">
+        <Routes>
+          <Route path="user-info" element={<UserInfo />} />
+          <Route path="vehicle-info" element={<UserInfo />} />
+        </Routes>
       </div>
     </div>
   );

@@ -14,10 +14,18 @@ module.exports = {
       'semibold': 700 
     },
     colors: {
-      'primary': '#be4242',
-      'primary-light': '#b9638b',
-      'secondary': '#137e84',
+      'primary': '#0075A0',
+      'primary-light': '#009BD4',
+      'secondary': '#1C2A2F',
+
       'white': "#fff",
+      'red': '#ff0000',
+      
+      'dark': {
+        900: '#131313',
+        800: '#111111',
+        700: '#161616'
+      },
 
       'gray': {
         900: '#444',
