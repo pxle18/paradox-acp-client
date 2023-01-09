@@ -1,5 +1,6 @@
 export interface AuthUserModel {
 	id: number;
 	username: string;
-  teamRank: string;
+  adminRank: string;
+  rankId: number;
 }

@@ -1,0 +1,144 @@
+
+.InovuaReactDataGrid--theme-default-light {
+  border: 1px solid #333333!important;
+  background: #141414!important;
+  color: #ffffff!important;
+  fill: #99a1aa!important;
+  font-size: 14px!important;
+}
+
+.InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__header {
+  background: #242424;
+}
+
+.InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__header, .InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__header-wrapper__fill {
+  border-bottom: unset;
+}
+
+.InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__column-header__filter-wrapper {
+  border: 0;
+  background: #242424;
+  border-top: unset;
+  padding: 4px;
+}
+
+.inovua-react-toolkit-text-input.inovua-react-toolkit-text-input--theme-default-light {
+  font-size: 14px;
+  fill: #99a1aa;
+  border: 1px solid #4a4a4a;
+  border-radius: 1px;
+  background: #141414;
+  color: #bcbcbc;
+  min-height: 32px;
+  height: 32px;
+  transition: all .2s;
+}
+
+.InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__column-header--show-border-left, .InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__column-header__resize-wrapper--show-border-left, .InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__header-group__title--show-border-left {
+  border-left: 1px solid #3e3e3e;
+}
+
+.InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__column-header--show-border-right, .InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__column-header__resize-wrapper--show-border-right {
+  border-right: unset;
+}
+
+.InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__header-wrapper__fill__filters {
+  min-height: 81px;
+  border-top: unset;
+  background: #242424;
+}
+
+.InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__header, .InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__header-wrapper__fill {
+  border-bottom: unset;
+}
+
+.InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__row--odd {
+  background: #1b1b1b;
+}
+
+.InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__row--even, .InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__row--no-zebra {
+  background: #121212;
+}
+
+.InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__cell--show-border-left, .InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__footer-row-cell--show-border-left, .InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__locked-row-cell--show-border-left {
+  border-left: 1px solid #313131;
+}
+
+.InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__cell--show-border-bottom, .InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__footer-row-cell--show-border-bottom, .InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__locked-row-cell--show-border-bottom {
+  border-bottom: 1px solid #313131;
+}
+
+.InovuaReactDataGrid--theme-default-light.InovuaReactDataGrid--show-hover-rows .InovuaReactDataGrid__row--no-zebra:not(.InovuaReactDataGrid__row--scrolling):not(.InovuaReactDataGrid__row--empty) .InovuaReactDataGrid__row-hover-target:hover, .InovuaReactDataGrid--theme-default-light.InovuaReactDataGrid--show-hover-rows .InovuaReactDataGrid__row--odd:not(.InovuaReactDataGrid__row--scrolling):not(.InovuaReactDataGrid__row--empty) .InovuaReactDataGrid__row-hover-target:hover {
+  background: #222222;
+  color: #9b9b9b;
+}
+
+.InovuaReactDataGrid--theme-default-light.InovuaReactDataGrid--show-hover-rows .InovuaReactDataGrid__row--even:not(.InovuaReactDataGrid__row--scrolling):not(.InovuaReactDataGrid__row--empty) .InovuaReactDataGrid__row-hover-target:hover {
+  background: #222222;
+  color: #9b9b9b;
+}
+
+.inovua-react-pagination-toolbar.inovua-react-pagination-toolbar--theme-default-light, .inovua-react-pagination-toolbar.inovua-react-pagination-toolbar--theme-default-light input {
+  color: #999999;
+  font-size: 14px;
+}
+.InovuaReactDataGrid--theme-default-light .inovua-react-pagination-toolbar.inovua-react-pagination-toolbar--theme-default-light {
+  border: none;
+  border-top: 1px solid #2e2e2e;
+}
+
+.inovua-react-pagination-toolbar.inovua-react-pagination-toolbar--theme-default-light {
+  padding: 2px 4px;
+  background: #131313;
+  fill: #99a1aa;
+}
+
+.inovua-react-toolkit-numeric-input.inovua-react-toolkit-numeric-input--theme-default-light .inovua-react-toolkit-numeric-input__input {
+  color: #e4e4e4;
+  font-size: 14px;
+}
+
+.inovua-react-pagination-toolbar.inovua-react-pagination-toolbar--theme-default-light .inovua-react-toolkit-combo-box--theme-default-light, .inovua-react-pagination-toolbar.inovua-react-pagination-toolbar--theme-default-light .inovua-react-toolkit-combo-box--theme-default-light .inovua-react-toolkit-combo-box__list, .inovua-react-pagination-toolbar.inovua-react-pagination-toolbar--theme-default-light .inovua-react-toolkit-numeric-input--theme-default-light, .inovua-react-pagination-toolbar.inovua-react-pagination-toolbar--theme-default-light input:not(.inovua-react-toolkit-numeric-input__input) {
+  border: 1px solid #2d2d2d;
+  outline: none;
+}
+
+.inovua-react-pagination-toolbar.inovua-react-pagination-toolbar--theme-default-light .inovua-react-pagination-toolbar__page-size-combo {
+  background: #141414;
+  margin-right: 8px;
+}
+
+.inovua-react-toolkit-combo-box__list--theme-default-light .inovua-react-toolkit-combo-box__list__virtual-list {
+  background: #1a1a1a;
+}
+
+.inovua-react-toolkit-combo-box__list--theme-default-light .inovua-react-toolkit-combo-box__list__item--selected {
+  background: rgb(255 255 255 / 5%);
+}
+
+.inovua-react-toolkit-combo-box__list--theme-default-light .inovua-react-toolkit-combo-box__list__item--active {
+  border: 1px solid #383838;
+}
+
+.inovua-react-toolkit-combo-box__list--theme-default-light .inovua-react-toolkit-combo-box__list__item:not(.inovua-react-toolkit-combo-box__list__item--disabled):hover {
+  background: rgb(37 37 37 / 42%);
+}
+
+.inovua-react-pagination-toolbar.inovua-react-pagination-toolbar--theme-default-light .inovua-react-toolkit-combo-box--focus.inovua-react-toolkit-combo-box--theme-default-light, .inovua-react-pagination-toolbar.inovua-react-pagination-toolbar--theme-default-light .inovua-react-toolkit-numeric-input.inovua-react-toolkit-numeric-input--focused, .inovua-react-pagination-toolbar.inovua-react-pagination-toolbar--theme-default-light input:not(.inovua-react-toolkit-numeric-input__input):focus {
+  border: 1px solid #7b7b7b;
+}
+
+.inovua-react-toolkit-numeric-input.inovua-react-toolkit-numeric-input--theme-default-light {
+  font-size: 14px;
+  fill: #99a1aa;
+  border: 1px solid #cdcecd;
+  background: #141414;
+  min-height: 26px;
+  border-radius: 1px;
+  transition: all .2s;
+  position: relative;
+}
+
+.InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__row--active .InovuaReactDataGrid__cell:not(.InovuaReactDataGrid__cell--no-background), .InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__row--active.InovuaReactDataGrid__row--even .InovuaReactDataGrid__cell:not(.InovuaReactDataGrid__cell--no-background), .InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__row--active.InovuaReactDataGrid__row--odd .InovuaReactDataGrid__cell:not(.InovuaReactDataGrid__cell--no-background) {
+  color: #929292;
+}

@@ -9,6 +9,7 @@ import Logo from "assets/vectors/paradox-logo-big.svg";
 import authService from "app/services/auth.service";
 
 import { useNavigate } from "react-router-dom";
+import { KeyIcon, UserIcon } from "@heroicons/react/outline";
 
 const Login: React.FC = () => 
 {
@@ -16,20 +17,43 @@ const Login: React.FC = () =>
 
   const { setAuthUser } = useAuthContext();
   
-  const [userAlias, setUserAlias] = useState<string>();
+  const [username, setUsername] = useState<string>();
   const [password, setPassword] = useState<string>();
 
   const [error, setError] = useState<string>();
 
   const handleLoginSubmit = (): void => {
-    setAuthUser({
-      id: 1,
-      username: "Walid_Mohammad",
-      teamRank: "Founder"
-    });
+    authService.login(username, password).then(response => {
+      if(response.data) {
+        var accessTokenModel = response.data;
 
-    navigate("/dashboard", { replace: true });
+        localStorage.setItem("accessToken", accessTokenModel.accessToken);
+        
+        checkLoggedIn();
+      } else setError(response.error ?? "Fehler: Bitte versuchen Sie es erneut.");
+    });
   }
+
+  const checkLoggedIn = () : void => {
+    authService.checkLoggedIn().then(response => {
+      if(response.data !== undefined) {
+        var account = response.data;
+
+        setAuthUser({
+          id: account.id,
+          username: account.username,
+          adminRank: account.adminRank,
+          rankId: account.rankId
+        })
+
+        navigate("/dashboard", { replace: true });
+      }
+    })
+  }
+
+  useEffect(() => {
+    checkLoggedIn();
+  }, [setAuthUser]);
 
   return (
     <div className="flex justify-center items-center h-full backdrop-blur-sm flex-col">
@@ -38,17 +62,27 @@ const Login: React.FC = () =>
       <div className="w-96">
         <div className="flex flex-row gap-3 my-5">
           <Input
-            label="Nutzername" />
+            icon={<UserIcon />}
+            placeholder="Nutzername:"
+            onChange={username => setUsername(username.target.value)} />
           
           <Input
-            label="Passwort" />
+            icon={<KeyIcon />}
+            type="password"
+            placeholder="Passwort:"
+            onChange={password => setPassword(password.target.value)} />
         </div>
 
         <Button 
+          className="relative -top-2"
           fullWidth={true}
           onClick={handleLoginSubmit}>
             Einloggen
         </Button>
+
+        { error && 
+          <p className="text-[#ffb7b7]">{ error }</p>
+        }
       </div>
     </div>
   );

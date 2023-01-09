@@ -10,85 +10,36 @@ import {
 } from "@mui/material";
 import { UserIcon, UsersIcon } from "@heroicons/react/outline";
 
-interface IInputProps extends StandardTextFieldProps { }
+interface IInputProps extends StandardTextFieldProps { 
+  icon?: JSX.Element
+}
 
 const Input: React.FC<IInputProps> = ({
   label,
-  value,
   placeholder,
+  icon,
   size,
   disabled,
   fullWidth,
   className,
+  type,
   onChange
 }) => {
   return (
-    <MuiInput 
-      label={label}
-      value={value}
-      placeholder={placeholder}
-      size={size}
-      disabled={disabled}
-      fullWidth={fullWidth}
-      className={className}
-      onChange={onChange}
-      variant="standard"
-      sx={
-        {
-          border: "1px solid rgb(118, 118, 118, 0.5)",
-          borderRadius: "4px",
-          background: "rgb(68, 68, 68, 0.8)",
-
-          "& .MuiFormLabel-root": {
-            fontSize: "16px",
-            fontFamily: "SF Pro Display",
-            color: "rgb(255, 255, 255, 0.8)",
-            margin: "-5px 16px"
-          },
-
-          "& .MuiInputLabel-shrink": {
-            marginTop: "10px"
-          },
-
-          "& .MuiInputBase-root": {
-            padding: "0px 12px 5px 0px"
-          },
-
-          "input": {
-            paddingLeft: "16px",
-            paddingRight: "16px",
-            color: "white",
-            fontFamily: "SF Pro Display",
-          },
-
-              
-        '& label.Mui-focused': {
-          color: 'white',
-        },
-        '& .MuiInput-underline:after': {
-          borderBottom: 'none',
-        },
-        '& .MuiInput-root:before': {
-          borderBottom: 'none'
-        },
-        
-        '& .MuiInput-root:hover:not(.Mui-disabled):before': {
-          borderBottom: 'none'
-        },
-        '& .MuiOutlinedInput-root': {
-          '& fieldset': {
-            border: 'none',
-          },
-          '&:hover fieldset': {
-            border: 'none',
-          },
-          '&.Mui-focused fieldset': {
-            border: 'none',
-          },
-        },
-        }
+    <div className="input-text relative">
+      { icon &&
+        <div className="w-[10px] absolute top-[9.3px] left-[5px]">
+          { icon }
+        </div>
       }
-    />
+      <input 
+        onChange={onChange}
+        disabled={disabled}
+        type={type}
+        placeholder={placeholder}
+        className="box-border placeholder:text-gray-800 placeholder:font-medium ease-in-out transition-all border-[1px] border-[rgb(48,48,48)] hover:border-[#5a5a5a] focus:border-[#5a5a5a8f] h-7 w-full font-normal pr-2 text-xs rounded-sm bg-[#242424] text-white pl-5"
+      />
+    </div>
   );
 };
 

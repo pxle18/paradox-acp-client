@@ -1,42 +1,34 @@
-import axios, { AxiosResponse } from "axios";
-
-const API_URL = "https://xmas.prdx.to:8443/v1/";
+import api from "app/api";
+import { Api } from "app/models/api.model";
+import { AuthUserModel } from "app/models/auth-user.model";
+import loadingService from "./loading.service";
 
 class AuthService {
-  login = async (username: string, password: string): Promise<any> => {
-    return await axios
-      .post(API_URL + "auth/login", { username, password })
+  login = async (username: string, password: string): Promise<Api<any>> => {
+    loadingService.setLoading(true);
+
+    return await api
+      .post("auth/login", { username, password })
       .then(response => {
+        loadingService.setLoading(false);
+
         return response.data;
       });
   }
 
-  loginWithCode = async (christmasCode: string): Promise<any> => {
-    return await axios
-      .post(API_URL + "auth/login/code", { christmasCode })
-      .then(response => {
-        return response.data;
-      });
-  }
-
-  generateChristmasCode = async (): Promise<any> => {
-    return await axios
-      .get(API_URL + "auth/generate/code")
-      .then(response => {
-        return response.data;
-      });
-  }
-
-  checkLoggedIn = async(): Promise<any> => {
+  checkLoggedIn = async(): Promise<Api<AuthUserModel>> => {
     const accessToken = localStorage.getItem("accessToken");
-    if(accessToken == "" || !accessToken) return {
-      success: false,
-      content: "Du bist nicht eingeloggt!"
-    }
+    if(accessToken == "" || !accessToken) {
+      console.log("Not.");
+      return {
+        error: "Unauthenticated."
+      }
+    } 
 
-    return await axios
-      .post(API_URL + "auth/check", { accessToken: accessToken })
+    return await api
+      .get("profile/info", { headers: this.getHeaders() })
       .then(response => {
+        console.log(response.data);
         return response.data;
       });
   }

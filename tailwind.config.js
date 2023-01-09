@@ -6,12 +6,14 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'default': ['SF Pro Display', 'sans-serif']
+      'default': ['Inter', 'Roboto', 'sans-serif'],
+      'twk': ['TWKEverett', 'Roboto', 'sans-serif'],
     },
     fontWeight: {
       'normal': 400,
       'medium': 500,
-      'semibold': 700 
+      'semibold': 700,
+      'bold': 900 
     },
     colors: {
       'primary': '#0075A0',
@@ -22,14 +24,26 @@ module.exports = {
       'red': '#ff0000',
       
       'dark': {
-        900: '#131313',
-        800: '#111111',
-        700: '#161616'
+        900: '#040404',
+        800: '#141414',
+        700: '#343434'
       },
 
       'gray': {
-        900: '#444',
+        900: '#999999',
         800: '#767676',
+      }
+    },
+    extend: {
+      keyframes: {
+        'item-swipe-right': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(120px)' },
+        },
+        'item-swipe-left': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-120px)' },
+        }
       }
     }
   },

@@ -2,8 +2,11 @@ import internal from "stream";
 
 export interface UserModel {
 	id: number;
+
+  isOnline: boolean;
+
 	username: string;
-  teamRank: string;
+  adminRank: string;
   forumId: number;
   
   money: number;
@@ -14,13 +17,13 @@ export interface UserModel {
   job: string;
   cuffed: boolean;
   tied: boolean;
-  factionId: number;
+  faction: string;
   phoneNumber: number;
 
   socialClubName: string;
   warns: number;
   suspended: boolean;
 
-  birthDate: Date;
-  lastLogin: Date;
+  birthDate: string;
+  lastLogin: number;
 }

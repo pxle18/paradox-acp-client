@@ -1,4 +1,42 @@
-@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+@font-face{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/Inter-Regular.dff77639.woff2) format("woff2")
+}
+
+@font-face{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(/fonts/Inter-Medium.4d7db1b2.woff2) format("woff2")
+}
+
+@font-face{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/fonts/Inter-Bold.f02ae97c.woff2) format("woff2")
+}
+
+@font-face{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(/fonts/Inter-Black.6d36a055.woff2) format("woff2")
+}
+
+@font-face{
+  font-family: TWKEverett;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/TWKEverett-Medium-web.woff) format("woff")
+}
 
 @tailwind base;
 @tailwind components;
@@ -11,6 +49,9 @@
     
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
   }
 
   input[type=password]::-ms-reveal,
@@ -32,4 +73,42 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
   }
+}
+
+
+.item-enter {
+  opacity: 0;
+}
+
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.item-exit {
+  opacity: 1;
+}
+
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(8, 8, 8);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #141414;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(22, 22, 22);
 }
