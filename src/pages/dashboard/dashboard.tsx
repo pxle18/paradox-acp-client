@@ -12,6 +12,7 @@ import UserInfo from "pages/user-info";
 import Hud from "layouts/hud/hud-full-screen";
 import UserInfoDashboard from "pages/user-info/user-info-dashboard";
 import VehicleDashboard from "pages/vehicles/vehicle-dashboard";
+import TeamDashboard from "pages/team/team-dashboard";
 
 const Dashboard: React.FC = () => 
 {
@@ -45,6 +46,10 @@ const Dashboard: React.FC = () =>
             <Link to="vehicles" className="w-full">
               <Button fullWidth={true}>Fahrzeuge</Button>
             </Link>
+
+            <Link to="teams" className="w-full">
+              <Button fullWidth={true}>Fraktionen</Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -53,6 +58,7 @@ const Dashboard: React.FC = () =>
         <Routes>
           <Route path="users/*" element={<UserInfoDashboard />} />
           <Route path="vehicles/*" element={<VehicleDashboard />} />
+          <Route path="teams/*" element={<TeamDashboard />} />
           <Route path="/" element={
             <div className="flex flex-col w-full justify-center items-center bg-dark-800 rounded-sm text-white p-4">
               <p className="font-twk text-5xl">PARADOX Role Play</p>

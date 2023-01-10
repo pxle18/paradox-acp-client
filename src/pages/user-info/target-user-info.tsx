@@ -291,7 +291,7 @@ const UserInfo: React.FC = () => {
                 <Button onClick={() => requestWarnReason()}>Spieler verwarnen</Button>
 
                 { !(currentAuthUser.rankId <= 2) && <Button onClick={() => requestSuspend()}>Spieler permanent auschliessen</Button>}
-                { !(currentAuthUser.rankId <= 2) && <Button onClick={() => requestDeSuspend()}>Communityauschluss aufheben</Button>}
+                { !(currentAuthUser.rankId <= 2) && <Button onClick={() => requestDeSuspend()}>Communityausschluss aufheben</Button>}
               </div>
             </div>
 
