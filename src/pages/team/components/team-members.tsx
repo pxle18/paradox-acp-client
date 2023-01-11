@@ -95,6 +95,12 @@ const TeamMembers: React.FC = () => {
 
     navigate("/dashboard/users/" + rowProps.data.id, { replace: true });
   }, [])
+
+  const getBooleanIcon = (state: boolean) => {
+    return state ? <CheckIcon className="text-[#b6ffba] w-3" scale={1}/> :
+      <XIcon className="text-[#ffb6c8] w-3" scale={1}/>;
+  }
+  
   
   const dataSource = useCallback(loadData, [])
   const [currentTeamMember, setCurrentTeamMember] = useState<TeamMemberModel>(null)
@@ -121,7 +127,34 @@ const TeamMembers: React.FC = () => {
             </div>
             
             <div className="flex flex-row gap-8 items-center">
-              <p>test</p>
+              <div className="flex flex-col">
+                <p className="text-3xl font-semibold">Bank</p>
+                <p className="text-gray-900">{getBooleanIcon(currentTeamMember.bankPermission)}</p>
+              </div>
+
+              <div className="flex flex-col">
+                <p className="text-3xl font-semibold">Inventar</p>
+                <p className="text-gray-900">{getBooleanIcon(currentTeamMember.inventoryPermission)}</p>
+              </div>
+
+              <div className="flex flex-col">
+                <p className="text-3xl font-semibold">Verwaltung</p>
+                <p className="text-gray-900">{getBooleanIcon(currentTeamMember.managePermission)}</p>
+              </div>
+            </div>
+
+                        
+            <div className="flex flex-col gap-2 items-start">
+              <div className="flex flex-row gap-2 items-start">
+                <Button>Rank ändern</Button>
+                <Button>Mitglied entlassen</Button>
+              </div>
+
+              <div className="flex flex-row gap-2 items-start">
+                <Button>Bankrechte ändern</Button>
+                <Button>Inventarrechte ändern</Button>
+                <Button>Verwaltungsrechte ändern</Button>
+              </div>
             </div>
           </div>
           :        
