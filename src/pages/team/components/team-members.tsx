@@ -10,7 +10,7 @@ import '../../../styles/data-grid-theme.css';
 import userLogService from "app/services/user-log.service";
 import { useUserContext } from "app/contexts/user-context";
 import userVehicleService from "app/services/user-vehicle.service";
-import { CheckIcon, XIcon } from "@heroicons/react/outline";
+import { ArrowLeftIcon, CheckIcon, XIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
 import teamVehicleService from "app/services/team-vehicle.service";
 import Button from "components/button";
@@ -19,6 +19,7 @@ import { TypeComputedProps, TypeSingleSortInfo } from "@inovua/reactdatagrid-com
 import modalService from "app/services/modal.service";
 import { ModalType } from "app/models/modal.model";
 import notificationService from "app/services/notification.service";
+import { TeamMemberModel } from "app/models/team.model";
 
 const gridStyle = { minHeight: 450, marginTop: 5 };
 
@@ -63,15 +64,12 @@ const TeamMembers: React.FC = () => {
     if (typeof input != "boolean") return;
     if (!input) return;
     
-    teamMemberService.deleteTeamMember(currentTeam.id, id).then(
+    teamMemberService.getTeamMember(currentTeam.id, id).then(
       response => {
         if(response.data === undefined) return;     
 
-        notificationService.pushNotification(response.data.message);
-        modalService.close();
-
-        dataSource[0] = null;
-        gridRef.current?.reload();
+        //notificationService.pushNotification(response.data.message);
+        //modalService.close();
       }
     )
   }
@@ -91,7 +89,7 @@ const TeamMembers: React.FC = () => {
       /**
        * Looks bad, workaround needed
        */
-      requestTeamKick(rowProps.data.id, rowProps.data.Name);
+      teamMemberService.getTeamMember(currentTeam.id, rowProps.data.id).then(response => setCurrentTeamMember(response.data ?? null))
       return;
     }
 
@@ -99,23 +97,46 @@ const TeamMembers: React.FC = () => {
   }, [])
   
   const dataSource = useCallback(loadData, [])
-  const [gridRef, setGridRef] = useState<React.MutableRefObject<TypeComputedProps>>()
+  const [currentTeamMember, setCurrentTeamMember] = useState<TeamMemberModel>(null)
 
   return (
     <div className="team-vehicles">
       <div className="flex flex-col gap-3 w-full mt-4">
-        <ReactDataGrid
-          idProperty="id"
-          style={gridStyle}
-          defaultFilterValue={defaultFilterValue}
-          defaultSortInfo={defaultSortInfo}
-          columns={columns}
-          pagination
-          onReady={setGridRef}
-          emptyText="Keine Einträge gefunden."
-          dataSource={dataSource}
-          onRowClick={onRowClick}
-        />
+        { currentTeamMember ? 
+          <div className="team-member-information flex flex-col gap-5">
+            <Button className="w-20" onClick={() => setCurrentTeamMember(null)}>
+              <ArrowLeftIcon className="w-3 h-3"/>
+            </Button>
+
+            <div className="flex flex-row gap-8 items-center">
+              <div className="flex flex-col">
+                <p className="text-3xl font-semibold">Name</p>
+                <p className="text-gray-900">{currentTeamMember.name}</p>
+              </div>
+
+              <div className="flex flex-col">
+                <p className="text-3xl font-semibold">Rang</p>
+                <p className="text-gray-900">{currentTeamMember.rank}</p>
+              </div>
+            </div>
+            
+            <div className="flex flex-row gap-8 items-center">
+              <p>test</p>
+            </div>
+          </div>
+          :        
+            <ReactDataGrid
+              idProperty="id"
+              style={gridStyle}
+              defaultFilterValue={defaultFilterValue}
+              defaultSortInfo={defaultSortInfo}
+              columns={columns}
+              pagination
+              emptyText="Keine Einträge gefunden."
+              dataSource={dataSource}
+              onRowClick={onRowClick}
+            />
+          }
       </div>
     </div>
   );

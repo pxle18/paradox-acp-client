@@ -27,3 +27,14 @@ export interface TeamModel {
 
   warns: number;
 }
+
+export interface TeamMemberModel {
+  id: number;
+
+  name: string;
+  rank: number;
+  
+  managePermission: boolean;
+  inventoryPermission: boolean;
+  bankPermission: boolean;
+}
