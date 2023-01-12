@@ -31,7 +31,7 @@ const TargetVehicle: React.FC = () => {
   const navigate = useNavigate();
 
   const { currentAuthUser } = useAuthContext();
-  const { currentTeam, setCurrentTeam } = useUserContext();
+  const { currentTeam, setCurrentTeam,  setCurrentTeamMember } = useUserContext();
 
   const { id } = useParams();
 
@@ -45,6 +45,7 @@ const TargetVehicle: React.FC = () => {
         var team = response.data;
 
         setCurrentTeam(team);
+        setCurrentTeamMember(null);
       }
     })
   }, [setCurrentTeam]);
@@ -60,7 +61,7 @@ const TargetVehicle: React.FC = () => {
         currentTeam &&
         <div className="flex flex-col gap-3">
           <div className="flex flex-row flex-wrap gap-10 items-center">
-            <img src={`/images/teams/${currentTeam.id}.png`} className="w-12 h-12" alt="Logo" />
+            <img src={`/images/teams/${currentTeam.id}.png`} className="w-12 h-12 hidden" alt="Logo" />
 
             <div className="flex flex-col justify-center">
               <p className="text-4xl font-medium font-twk">Name</p>

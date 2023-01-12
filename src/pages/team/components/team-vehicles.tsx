@@ -76,6 +76,7 @@ const TeamVehicles: React.FC = () => {
 
   return (
     <div className="team-vehicles">
+
       <div className="flex flex-col gap-3 w-full mt-4">
         <ReactDataGrid
           idProperty="id"
@@ -87,10 +88,10 @@ const TeamVehicles: React.FC = () => {
           dataSource={dataSource}
           onRowClick={onRowClick}
         />
-      </div>
-
-      <div className="flex flex-col gap-2 mt-2 w-full">
-        <Button>Fahrzeug hinzufügen</Button>
+        
+        <div className="flex flex-col gap-2 mt-2 w-full">
+          <Button>Fahrzeug hinzufügen</Button>
+        </div>
       </div>
     </div>
   );

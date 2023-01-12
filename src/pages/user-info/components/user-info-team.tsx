@@ -4,13 +4,15 @@ import Button from "components/button";
 import Input from "components/input";
 
 import { useAuthContext } from "app/contexts/auth-context";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { useUserContext } from "app/contexts/user-context";
 import notificationService from "app/services/notification.service";
 import teamMemberService from "app/services/team-member.service";
 import TeamMemberInfo from "pages/team/components/team-member-info";
 
 const UserInfoTeam: React.FC = () => {
+  const navigate = useNavigate();
+
   const { currentAuthUser } = useAuthContext();
   const { currentUser } = useUserContext();
   const { currentTeamMember, setCurrentTeamMember } = useUserContext();
@@ -32,7 +34,7 @@ const UserInfoTeam: React.FC = () => {
               </div>
 
             <TeamMemberInfo />
-            <Button>Fraktion aufrufen</Button>
+            <Button onClick={() => navigate(`/dashboard/teams/${currentUser.factionId}`, { replace: true })}>Fraktion aufrufen</Button>
           </div>
       }
     </div>

@@ -10,7 +10,7 @@ import '../../../styles/data-grid-theme.css';
 import userLogService from "app/services/user-log.service";
 import { useUserContext } from "app/contexts/user-context";
 import userVehicleService from "app/services/user-vehicle.service";
-import { ArrowLeftIcon, CheckIcon, XIcon } from "@heroicons/react/outline";
+import { ArrowLeftIcon, CheckIcon, EyeIcon, XIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
 import teamVehicleService from "app/services/team-vehicle.service";
 import Button from "components/button";
@@ -40,7 +40,7 @@ const columns = [
   { name: 'Rang', header: 'Rang', groupBy: false, defaultFlex: 0, defaultWidth: 80, },
   { 
     name: 'Action', header: "Aktion", groupBy: false, defaultFlex: 0, defaultWidth: 100,
-    render: () => <Button>x</Button>
+    render: () => <Button><EyeIcon className="w-4 h-4" /></Button>
   }
 ];
 
@@ -83,21 +83,27 @@ const TeamMembers: React.FC = () => {
               <Button className="w-20" onClick={() => setCurrentTeamMember(null)}>
                 <ArrowLeftIcon className="w-3 h-3"/>
               </Button>
-              
+
               <TeamMemberInfo />
             </div>
           :        
-            <ReactDataGrid
-              idProperty="id"
-              style={gridStyle}
-              defaultFilterValue={defaultFilterValue}
-              defaultSortInfo={defaultSortInfo}
-              columns={columns}
-              pagination
-              emptyText="Keine Einträge gefunden."
-              dataSource={dataSource}
-              onRowClick={onRowClick}
-            />
+            <div className="flex flex-col gap-3">
+              <ReactDataGrid
+                idProperty="id"
+                style={gridStyle}
+                defaultFilterValue={defaultFilterValue}
+                defaultSortInfo={defaultSortInfo}
+                columns={columns}
+                pagination
+                emptyText="Keine Einträge gefunden."
+                dataSource={dataSource}
+                onRowClick={onRowClick}
+              />
+
+              <div className="flex flex-col gap-2 mt-2 w-full">
+                <Button>Mitglied hinzufügen</Button>
+              </div>
+            </div>
           }
       </div>
     </div>
