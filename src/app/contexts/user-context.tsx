@@ -6,7 +6,7 @@ import uuid from "uuid";
 import React, { useState, createContext } from "react";
 import { UserModel } from "app/models/user.model";
 import { VehicleModel } from "app/models/vehicle.model";
-import { TeamModel } from "app/models/team.model";
+import { TeamMemberModel, TeamModel } from "app/models/team.model";
 
 type Props = {
   children: React.ReactNode
@@ -21,6 +21,9 @@ interface UserContextType {
 
   currentTeam: TeamModel | null;
   setCurrentTeam: (currentTeam: TeamModel | null) => void;
+  
+  currentTeamMember: TeamMemberModel | null;
+  setCurrentTeamMember: (currentTeamMember: TeamMemberModel | null) => void;
 }
 
 const UserContext = createContext<UserContextType>({} as UserContextType);
@@ -29,6 +32,7 @@ export const UserProvider: React.FC<Props> = ({children}) => {
   const [currentUser, setCurrentUser] = useState<UserModel | null>(null);
   const [currentVehicle, setCurrentVehicle] = useState<VehicleModel | null>(null);
   const [currentTeam, setCurrentTeam] = useState<TeamModel | null>(null);
+  const [currentTeamMember, setCurrentTeamMember] = useState<TeamMemberModel | null>(null);
 
   const userContextValue: UserContextType = {
     currentUser,
@@ -38,7 +42,10 @@ export const UserProvider: React.FC<Props> = ({children}) => {
     setCurrentVehicle,
 
     currentTeam,
-    setCurrentTeam
+    setCurrentTeam,
+
+    currentTeamMember,
+    setCurrentTeamMember
   };
 
   return (

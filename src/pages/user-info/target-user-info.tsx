@@ -23,11 +23,13 @@ import UserInfoVehicles from "./components/user-info-vehicles";
 import modalService from "app/services/modal.service";
 import { ModalType } from "app/models/modal.model";
 import userActionService from "app/services/user-action.service";
+import UserInfoTeam from "./components/user-info-team";
 
 export enum CategoryTabs {
   NOTES,
   INVENTORY,
   VEHICLES,
+  TEAM,
   LOG_KILLS,
   LOG_ITEMS
 };
@@ -303,7 +305,7 @@ const UserInfo: React.FC = () => {
                 <Button>Häuser</Button>
                 <Button>Lagerhallen</Button>
                 <Button>Reports</Button>
-                <Button>Fraktion</Button>
+                <Button onClick={() => setTab(CategoryTabs.TEAM)}>Fraktion</Button>
                 <Button onClick={() => setTab(CategoryTabs.LOG_KILLS)}>Logs (Kills)</Button>
                 { !(currentAuthUser.rankId <= 2) && <Button onClick={() => setTab(CategoryTabs.LOG_ITEMS)}>Logs (Item)</Button> }
               </div>
@@ -312,6 +314,7 @@ const UserInfo: React.FC = () => {
                 [ CategoryTabs.NOTES ]: <UserInfoNotes />,
                 [ CategoryTabs.INVENTORY ]: <UserInfoInventory />,
                 [ CategoryTabs.VEHICLES ]: <UserInfoVehicles />,
+                [ CategoryTabs.TEAM ]: <UserInfoTeam />,
                 [ CategoryTabs.LOG_KILLS ]: <UserInfoLogKills />,
                 [ CategoryTabs.LOG_ITEMS ]: <UserInfoLogItems />
               }[currentTab]}

@@ -17,7 +17,10 @@ export interface UserModel {
   job: string;
   cuffed: boolean;
   tied: boolean;
+  
   faction: string;
+  factionId: number;
+  
   phoneNumber: number;
 
   socialClubName: string;
