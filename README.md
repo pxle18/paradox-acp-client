@@ -1,3 +1,3 @@
-# PARADOX XMAS Calendar
-This is the frontend of the GTA RP server PARADOX-Roleplay XMAS Calendar.
+# Void XMAS Calendar
+This is the frontend of the GTA RP server Void-Roleplay XMAS Calendar.
 

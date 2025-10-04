@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Button from "components/button";
 import Input from "components/select";
 
-import Logo from "assets/vectors/paradox-logo.svg";
+import Logo from "assets/vectors/Void-logo.svg";
 import { useAuthContext } from "app/contexts/auth-context";
 import { useUserContext } from "app/contexts/user-context";
 import presentService from "app/services/user.service";

@@ -5,7 +5,7 @@ import Input from "components/input";
 
 import { useAuthContext } from "app/contexts/auth-context";
 
-import Logo from "assets/vectors/paradox-logo-big.svg";
+import Logo from "assets/vectors/Void-logo-big.svg";
 import authService from "app/services/auth.service";
 
 import { useHudContext } from "app/contexts/hud-context";

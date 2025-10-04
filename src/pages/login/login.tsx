@@ -5,7 +5,7 @@ import Input from "components/input";
 
 import { useAuthContext } from "app/contexts/auth-context";
 
-import Logo from "assets/vectors/paradox-logo-big.svg";
+import Logo from "assets/vectors/Void-logo-big.svg";
 import authService from "app/services/auth.service";
 
 import { useNavigate } from "react-router-dom";
@@ -57,7 +57,7 @@ const Login: React.FC = () =>
 
   return (
     <div className="flex justify-center items-center h-full backdrop-blur-sm flex-col">
-      <img src="/images/paradox-title-logo.png" className="w-96" alt="Logo" />
+      <img src="/images/Void-title-logo.png" className="w-96" alt="Logo" />
 
       <div className="w-96">
         <div className="flex flex-row gap-3 my-5">

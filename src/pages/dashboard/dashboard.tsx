@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Button from "components/button";
 import Input from "components/input";
 
-import Logo from "assets/vectors/paradox-logo.svg";
+import Logo from "assets/vectors/Void-logo.svg";
 import { useAuthContext } from "app/contexts/auth-context";
 import presentService from "app/services/user.service";
 import { Link, Route, Routes } from "react-router-dom";
@@ -61,7 +61,7 @@ const Dashboard: React.FC = () =>
           <Route path="teams/*" element={<TeamDashboard />} />
           <Route path="/" element={
             <div className="flex flex-col w-full justify-center items-center bg-dark-800 rounded-sm text-white p-4">
-              <p className="font-twk text-5xl">PARADOX Role Play</p>
+              <p className="font-twk text-5xl">Void Role Play</p>
               <p className="font-twk text-3xl">Admin-Control-Panel</p>
             </div>
           } />

@@ -61,7 +61,7 @@ const TeamMembers: React.FC = () => {
   }
 
   const onRowClick = useCallback((rowProps: any, event: any) => {
-    if(event.target.id == "paradox-button")
+    if(event.target.id == "Void-button")
     {
       /**
        * Looks bad, workaround needed

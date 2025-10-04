@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-// axios.defaults.baseURL = 'https://acp.prdx.to/api/';
+// axios.defaults.baseURL = 'https://acp.void.to/api/';
 axios.defaults.baseURL = 'http://localhost:8000/';
 
 const api = axios.create({
